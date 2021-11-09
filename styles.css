@@ -98,8 +98,7 @@ html {
     cursor: pointer;
 }
 
-.prev-date,
-.next-date {
+.prev-date, .next-date {
     opacity: 0.5;
 }
 .today {

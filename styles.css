@@ -105,3 +105,10 @@ html {
     background-color: #337933;
     color: white;
 }
+
+.displayNone {
+    display: none;
+}
+.displayBlock {
+    display: block;
+}

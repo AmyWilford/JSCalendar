@@ -1,6 +1,8 @@
 // establishes date
 const date = new Date();
 
+let todayDate = document.querySelector('#todayDate');
+
 const renderCalendar = () => {
     //sets date to first of month to find appropriate week index
     date.setDate(1);
@@ -38,7 +40,7 @@ const months = [
     'December' 
 ];
 // STEP 2. Update HTML h1 to read month from JS. Use getMonth on date to pull the month from the current date. Pulling the index number from the months array gives us the current month
-document.querySelector('.date h1').innerHTML = months[date.getMonth()]
+document.querySelector('.date h1').innerHTML = `${months[date.getMonth()]}, ${date.getFullYear()}`
 // Step 3. use toDateString which lists the date (From date const ) as a sting
 document.querySelector('.date p').innerHTML = new Date().toDateString();
 // STEP 4. display days of the month using a for loop
@@ -61,7 +63,6 @@ for(let i = 1; i<=lastDay; i++) {
     }
 }
 
-
 // for loop for upcoming days. J begins with 1 because each month begins with 1
 for(let j=1; j <=nextDays;j++) {
     days+=`<div class="next-date">${j}</div>`
@@ -75,14 +76,15 @@ monthDays.innerHTML = days;
 
 document.querySelector('.prev').addEventListener('click', () => {
     date.setMonth(date.getMonth()-1);
+    todayDate.className = "displayNone";
     renderCalendar();
 
 })
 
 document.querySelector('.next').addEventListener('click', () => {
-    date.setMonth(date.getMonth()+1);
+     date.setMonth(date.getMonth()+1);
+     todayDate.className = "displayNone";
     renderCalendar();
-
 })
 
 renderCalendar();
